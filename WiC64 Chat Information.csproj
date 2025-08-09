@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows10.0.20348.0</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<ApplicationIcon>Assets\WiC64Icon.ico</ApplicationIcon>
+		<AssemblyTitle>WiC64 Chat Information</AssemblyTitle>
+		<AssemblyProduct>WiC64 Chat Information</AssemblyProduct>
+	</PropertyGroup>
+
+	<!--<ItemGroup>
+	  <None Remove="Assets\PowerIcon.ico" />
+	  <None Remove="Assets\UsersIcon.ico" />
+	</ItemGroup>-->
+
+	<!--<ItemGroup>
+		<Content Include="Assets\PowerIcon.ico">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Assets\UsersIcon.ico">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Assets\WiC64Icon.ico">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		--><!-- Kein Remove notwendig --><!--
+	</ItemGroup>-->
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Assets\*.ico" />
+		<EmbeddedResource Include="Assets\*.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Assets\Pling.wav" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Assets\Pling.wav">
+	    <CopyToOutputDirectory></CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Properties\Settings.Designer.cs">
+	    <DesignTimeSharedInput>True</DesignTimeSharedInput>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Settings.settings</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Properties\Settings.settings">
+	    <Generator>SettingsSingleFileGenerator</Generator>
+	    <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<PublishSingleFile>true</PublishSingleFile>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<!-- Für 64-Bit-Windows -->
+		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+		<SelfContained>true</SelfContained>
+		<!-- Alle .NET-Abhängigkeiten einbeziehen -->
+	
+	</PropertyGroup>
+	
+</Project>
